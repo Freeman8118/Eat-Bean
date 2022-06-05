@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* center */
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #282c34;
+}
+
+
+.loading {
+    position: relative;
+
+}
+
+/* Mouth */
+.loading>.eatbean-up,
+.loading>.eatbean-down {
+    width: 0;
+    height: 0;
+    border: 25px solid #ffcd42;
+    border-right: 25px solid transparent;
+    border-radius: 50%;
+}
+
+/* up mouth */
+.loading>.eatbean-up {
+    animation: rotate_eatbean_up 0.5s infinite;
+
+}
+
+/* down mouth */
+.loading>.eatbean-down {
+    animation: rotate_eatbean_down 0.5s infinite;
+    margin-top: -100%;
+}
+
+/* beans */
+.loading>.eatbean-dot {
+    position: absolute;
+    background: #ffcd42;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 50%;
+    left: 100px;
+    margin-top: -6px;
+}
+
+/* path line */
+.loading>.eatbean-dot:nth-child(3) {
+    animation: eatbean_dot 1s 0s infinite linear;
+}
+
+.loading>.eatbean-dot:nth-child(4) {
+    animation: eatbean_dot 1s 0.33s infinite linear;
+}
+
+.loading>.eatbean-dot:nth-child(5) {
+    animation: eatbean_dot 1s 0.66s infinite linear;
+}
+
+/* animation */
+
+/* beans movement */
+@keyframes eatbean_dot {
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translate(-100px, 0);
+    }
+}
+
+
+/* up mouth open and close */
+@keyframes rotate_eatbean_up {
+    0%{
+        transform: rotate(270deg);
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(270deg);
+    }
+}
+
+/* down mouth open and close */
+@keyframes rotate_eatbean_down {
+    0%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(90deg);
+    }
+}
